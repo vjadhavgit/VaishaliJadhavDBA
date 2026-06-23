@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vaishali Jadhav — Senior Database Administrator</title>
+<meta name="description" content="Vaishali Jadhav — Senior Database Administrator. 10+ years of Microsoft SQL Server: high availability, performance tuning, migrations, cloud, and security." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0e1626;
+    --bg-2:#0b1220;
+    --surface:#16233a;
+    --surface-2:#1b2c47;
+    --line:#26395a;
+    --text:#e8eef7;
+    --muted:#90a2bf;
+    --faint:#64789a;
+    --online:#34d39a;     /* healthy status green */
+    --online-dim:#1c8a68;
+    --amber:#f5b544;      /* secondary accent */
+    --amber-dim:#a9781f;
+    --r:14px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter",system-ui,sans-serif;
+    background:
+      radial-gradient(1100px 600px at 80% -10%, rgba(52,211,154,.08), transparent 60%),
+      radial-gradient(900px 500px at -10% 10%, rgba(245,181,68,.06), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+  .display{font-family:"Space Grotesk",sans-serif}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(11,18,32,.7);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:"Space Grotesk";font-weight:700;letter-spacing:.02em}
+  .logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--online),#1c9d97);
+    display:grid;place-items:center;color:#06241b;font-family:"JetBrains Mono";font-weight:700;font-size:14px}
+  .nav-links{display:flex;gap:26px;font-size:14px;color:var(--muted)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  @media(max-width:720px){.nav-links{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:72px 0 36px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  @media(max-width:860px){.hero{grid-template-columns:1fr;gap:34px;padding:48px 0 24px}}
+  .eyebrow{font-family:"JetBrains Mono";font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--online);margin-bottom:18px;display:flex;align-items:center;gap:9px}
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--online);box-shadow:0 0 0 4px rgba(52,211,154,.18)}
+  h1{font-family:"Space Grotesk";font-weight:700;font-size:clamp(38px,6vw,62px);line-height:1.02;letter-spacing:-.02em}
+  .role{font-family:"Space Grotesk";font-weight:600;font-size:clamp(17px,2.4vw,21px);color:var(--amber);margin-top:10px}
+  .lede{color:var(--muted);font-size:17px;margin-top:20px;max-width:46ch}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border-radius:11px;font-size:14.5px;font-weight:600;border:1px solid var(--line);transition:transform .15s,border-color .2s,background .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:linear-gradient(135deg,var(--online),#19a085);color:#062018;border-color:transparent}
+  .btn-ghost{color:var(--text);background:var(--surface)}
+  .btn-ghost:hover{border-color:var(--online)}
+  .btn svg{width:16px;height:16px}
+
+  /* hero console card */
+  .console{background:linear-gradient(180deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:0 24px 60px -28px rgba(0,0,0,.7)}
+  .console-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .console-bar .tl{width:11px;height:11px;border-radius:50%}
+  .console-title{margin-left:8px;font-family:"JetBrains Mono";font-size:12px;color:var(--muted)}
+  .console-body{padding:16px}
+  .inst-head{display:flex;justify-content:space-between;font-family:"JetBrains Mono";font-size:11px;letter-spacing:.08em;color:var(--faint);text-transform:uppercase;padding:0 4px 10px}
+  .inst{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;font-family:"JetBrains Mono";font-size:13px;border:1px solid transparent}
+  .inst+.inst{margin-top:6px}
+  .inst:hover{background:rgba(255,255,255,.03);border-color:var(--line)}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--online);box-shadow:0 0 0 0 rgba(52,211,154,.5);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,154,.45)}70%{box-shadow:0 0 0 7px rgba(52,211,154,0)}100%{box-shadow:0 0 0 0 rgba(52,211,154,0)}}
+  .inst .name{color:var(--text)}
+  .tag{font-size:10.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--amber-dim);color:var(--amber);letter-spacing:.05em}
+  .tag.ok{border-color:var(--online-dim);color:var(--online)}
+  .console-foot{display:flex;justify-content:space-between;padding:13px 16px;border-top:1px solid var(--line);font-family:"JetBrains Mono";font-size:12px;color:var(--muted)}
+
+  /* ---------- metrics strip ---------- */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:30px 0 8px}
+  @media(max-width:780px){.metrics{grid-template-columns:repeat(2,1fr)}}
+  .metric{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 18px;position:relative;overflow:hidden}
+  .metric::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--online)}
+  .metric.amber::before{background:var(--amber)}
+  .metric .num{font-family:"JetBrains Mono";font-weight:700;font-size:30px;letter-spacing:-.01em;color:var(--text)}
+  .metric.amber .num{color:var(--amber)}
+  .metric .num span{color:var(--online);font-size:20px}
+  .metric.amber .num span{color:var(--amber)}
+  .metric .lbl{color:var(--muted);font-size:13px;margin-top:6px}
+
+  /* ---------- sections ---------- */
+  section{padding:64px 0}
+  .sec-eyebrow{font-family:"JetBrains Mono";font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--online);margin-bottom:14px}
+  h2{font-family:"Space Grotesk";font-weight:700;font-size:clamp(26px,4vw,36px);letter-spacing:-.02em;margin-bottom:10px}
+  .sec-intro{color:var(--muted);max-width:60ch;margin-bottom:34px}
+
+  .about p{color:#c4d2e6;font-size:17px;max-width:68ch}
+  .about p+p{margin-top:16px}
+
+  /* wins */
+  .wins{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media(max-width:820px){.wins{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--surface),rgba(16,22,38,.6));border:1px solid var(--line);border-radius:var(--r);padding:24px;transition:transform .18s,border-color .25s}
+  .card:hover{transform:translateY(-4px);border-color:var(--online-dim)}
+  .card h3{font-family:"Space Grotesk";font-weight:600;font-size:19px;margin-bottom:6px}
+  .card .kicker{font-family:"JetBrains Mono";font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+  .card p{color:var(--muted);font-size:14.5px}
+  .viz{margin:6px 0 16px}
+  .sql{font-family:"JetBrains Mono";font-size:12.5px;line-height:1.7;background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:6px 0 14px;overflow-x:auto}
+  .sql .k{color:#7fb2ff}.sql .c{color:var(--faint)}.sql .g{color:var(--online)}.sql .y{color:var(--amber)}
+
+  /* skills */
+  .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:820px){.skill-grid{grid-template-columns:1fr}}
+  .skill-group{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+  .skill-group h4{font-family:"JetBrains Mono";font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--online);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:13px;padding:6px 11px;border-radius:9px;background:var(--surface-2);border:1px solid var(--line);color:#cdd9ec}
+
+  /* timeline */
+  .tl-item{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+  @media(max-width:680px){.tl-item{grid-template-columns:1fr;gap:6px}}
+  .tl-when{font-family:"JetBrains Mono";font-size:13px;color:var(--amber)}
+  .tl-role{font-family:"Space Grotesk";font-weight:600;font-size:18px}
+  .tl-org{color:var(--muted);font-size:14px;margin-bottom:8px}
+  .tl-item p{color:var(--muted);font-size:14.5px;max-width:64ch}
+
+  /* contact */
+  .contact{text-align:center;padding:72px 0}
+  .contact h2{margin-bottom:14px}
+  .contact p{color:var(--muted);margin-bottom:26px}
+  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--faint);font-size:13px;font-family:"JetBrains Mono";text-align:center}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .pulse{animation:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand"><span class="logo">VJ</span> Vaishali&nbsp;Jadhav</div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#wins">Wins</a>
+      <a href="#skills">Stack</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" style="padding-top:64px">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Senior Database Administrator · Microsoft SQL Server</div>
+      <h1 class="display">Fast. Available.<br>Secure.</h1>
+      <div class="role">Vaishali Jadhav — SQL Server DBA</div>
+      <p class="lede">10+ years keeping SQL Server healthy across on-prem clusters and the cloud — tuning what's slow, keeping it online with Always On, and locking it down.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="mailto:vaicareerpath@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Get in touch
+        </a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/vaishali-jadhav-1b1656357" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.4 8.2h4.2V24H.4Zm7.1 0h4v2.2h.06c.56-1 1.93-2.2 3.97-2.2 4.25 0 5.04 2.6 5.04 6v9.8h-4.2v-8.7c0-2.07-.04-4.74-2.9-4.74-2.9 0-3.34 2.26-3.34 4.6V24h-4.2Z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn btn-ghost" href="resume.pdf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          Résumé
+        </a>
+      </div>
+    </div>
+
+    <!-- console panel -->
+    <div class="console reveal">
+      <div class="console-bar">
+        <span class="tl" style="background:#ff5f57"></span>
+        <span class="tl" style="background:#febc2e"></span>
+        <span class="tl" style="background:#28c840"></span>
+        <span class="console-title">sqlserver — instance health</span>
+      </div>
+      <div class="console-body">
+        <div class="inst-head"><span>Instance</span><span></span><span>Status</span></div>
+        <div class="inst"><span class="pulse"></span><span class="name">PROD-01 <span class="tag ok">Always On</span> <span class="tag">Clustered</span></span><span style="color:var(--online)">ONLINE</span></div>
+        <div class="inst"><span class="pulse"></span><span class="name">PROD-02 <span class="tag ok">Always On</span> <span class="tag">Clustered</span></span><span style="color:var(--online)">ONLINE</span></div>
+        <div class="inst"><span class="pulse"></span><span class="name">PROD-03</span><span style="color:var(--online)">ONLINE</span></div>
+        <div class="inst"><span class="pulse"></span><span class="name">REPL-01 <span class="tag ok">Replication</span></span><span style="color:var(--online)">ONLINE</span></div>
+        <div class="inst"><span class="pulse"></span><span class="name">REPORT-01 <span class="tag ok">SSRS</span></span><span style="color:var(--online)">ONLINE</span></div>
+        <div class="inst"><span class="pulse"></span><span class="name">STAGE-01</span><span style="color:var(--online)">ONLINE</span></div>
+      </div>
+      <div class="console-foot"><span>6 instances · 2 clustered</span><span style="color:var(--online)">availability ✓</span></div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <div class="metrics">
+    <div class="metric reveal"><div class="num">10<span>+ yrs</span></div><div class="lbl">SQL Server administration</div></div>
+    <div class="metric amber reveal"><div class="num">50<span>%</span></div><div class="lbl">Faster processing — deadlock resolved</div></div>
+    <div class="metric amber reveal"><div class="num">30<span>%</span></div><div class="lbl">Query runtime cut — index + rewrite</div></div>
+    <div class="metric reveal"><div class="num">64<span>%</span></div><div class="lbl">Cloud cost reduced — Terraform IaC</div></div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="about reveal">
+    <div class="sec-eyebrow">// about</div>
+    <h2 class="display">The DBA who makes the numbers move</h2>
+    <p>I administer Microsoft SQL Server across high-availability, security-sensitive environments — six instances today, two of them failover-clustered with Always On. Day to day that means owning backup and restore, replication, capacity planning, patching, and version migrations through SQL Server 2019, plus the SSIS, SSRS, and SSAS stack.</p>
+    <p>What I care about most is measurable impact: queries that run faster, systems that stay up, and data that stays protected. I work with confidential government data, document and present my work for technical and business audiences, and I'm currently leading database modernization to the cloud with security and cost as first priorities.</p>
+  </section>
+
+  <!-- WINS -->
+  <section id="wins">
+    <div class="sec-eyebrow">// selected work</div>
+    <h2 class="display reveal">Problems solved, measured</h2>
+    <p class="sec-intro reveal">A few representative results — each one real, each one quantified.</p>
+
+    <div class="wins">
+
+      <!-- deadlock -->
+      <div class="card reveal">
+        <div class="kicker">Performance · Concurrency</div>
+        <h3>Killed a deadlock that was choking processing</h3>
+        <div class="viz">
+          <svg viewBox="0 0 320 96" width="100%" height="96" role="img" aria-label="Processing time cut by 50 percent">
+            <text x="0" y="14" fill="#64789a" font-family="JetBrains Mono" font-size="11">processing time</text>
+            <rect x="0" y="26" width="300" height="16" rx="4" fill="#f5b544"/>
+            <text x="306" y="38" fill="#f5b544" font-family="JetBrains Mono" font-size="11" text-anchor="end" dx="-2"></text>
+            <text x="296" y="38" fill="#1a1206" font-family="JetBrains Mono" font-size="10" text-anchor="end" font-weight="700">before</text>
+            <rect x="0" y="54" width="150" height="16" rx="4" fill="#34d39a"/>
+            <text x="160" y="67" fill="#34d39a" font-family="JetBrains Mono" font-size="11" font-weight="700">−50%</text>
+            <text x="8" y="67" fill="#06241b" font-family="JetBrains Mono" font-size="10" font-weight="700">after</text>
+          </svg>
+        </div>
+        <p>Diagnosed a recurring deadlock that was throttling database processing and resolved the contention — cutting processing time in half.</p>
+      </div>
+
+      <!-- query tuning -->
+      <div class="card reveal">
+        <div class="kicker">Performance · Tuning</div>
+        <h3>Tuned a high-cost query by 30%</h3>
+        <div class="sql">
+<span class="c">-- add covering index + rewrite</span><br>
+<span class="k">CREATE</span> <span class="k">INDEX</span> ix_lookup <span class="k">ON</span> dbo.txn (status, dt)<br>
+&nbsp;&nbsp;<span class="k">INCLUDE</span> (amount);<br>
+<span class="c">-- runtime <span class="y">100%</span> → <span class="g">70%</span></span>
+        </div>
+        <p>Combined a targeted index with a query rewrite to reduce a high-cost query's execution time by 30%.</p>
+      </div>
+
+      <!-- PII audit -->
+      <div class="card reveal">
+        <div class="kicker">Security · Compliance</div>
+        <h3>Built PII-access auditing in-house</h3>
+        <div class="viz">
+          <svg viewBox="0 0 320 96" width="100%" height="96" role="img" aria-label="PII access auditing and alerting">
+            <rect x="2" y="30" width="74" height="36" rx="7" fill="#16233a" stroke="#26395a"/>
+            <text x="39" y="52" fill="#90a2bf" font-family="JetBrains Mono" font-size="10" text-anchor="middle">PII access</text>
+            <path d="M80 48 H120" stroke="#34d39a" stroke-width="2"/><path d="M114 43 l8 5 -8 5" fill="none" stroke="#34d39a" stroke-width="2"/>
+            <rect x="124" y="30" width="74" height="36" rx="7" fill="#16233a" stroke="#34d39a"/>
+            <text x="161" y="52" fill="#34d39a" font-family="JetBrains Mono" font-size="10" text-anchor="middle">audit log</text>
+            <path d="M202 48 H242" stroke="#f5b544" stroke-width="2"/><path d="M236 43 l8 5 -8 5" fill="none" stroke="#f5b544" stroke-width="2"/>
+            <rect x="246" y="30" width="72" height="36" rx="7" fill="#16233a" stroke="#f5b544"/>
+            <text x="282" y="52" fill="#f5b544" font-family="JetBrains Mono" font-size="10" text-anchor="middle">alert email</text>
+          </svg>
+        </div>
+        <p>Designed a solution that audits access to sensitive PII data and sends automated alerts — adopted among senior DBAs and built end-to-end, replacing a planned commercial tool and saving the cost.</p>
+      </div>
+
+      <!-- Always On / DR -->
+      <div class="card reveal">
+        <div class="kicker">Availability · Resilience</div>
+        <h3>Always On clusters &amp; a DR standard</h3>
+        <div class="viz">
+          <svg viewBox="0 0 320 96" width="100%" height="96" role="img" aria-label="Always On availability group with primary and secondary replica">
+            <text x="0" y="12" fill="#64789a" font-family="JetBrains Mono" font-size="10">availability group</text>
+            <rect x="20" y="26" width="92" height="40" rx="8" fill="#16233a" stroke="#34d39a"/>
+            <circle cx="34" cy="46" r="4" fill="#34d39a"/>
+            <text x="46" y="43" fill="#e8eef7" font-family="JetBrains Mono" font-size="10">PRIMARY</text>
+            <text x="46" y="56" fill="#64789a" font-family="JetBrains Mono" font-size="9">read / write</text>
+            <path d="M112 46 H170" stroke="#34d39a" stroke-width="2" stroke-dasharray="4 4"/>
+            <text x="141" y="40" fill="#34d39a" font-family="JetBrains Mono" font-size="8" text-anchor="middle">sync</text>
+            <rect x="170" y="26" width="92" height="40" rx="8" fill="#16233a" stroke="#26395a"/>
+            <circle cx="184" cy="46" r="4" fill="#f5b544"/>
+            <text x="196" y="43" fill="#e8eef7" font-family="JetBrains Mono" font-size="10">SECONDARY</text>
+            <text x="196" y="56" fill="#64789a" font-family="JetBrains Mono" font-size="9">failover</text>
+            <path d="M141 66 V80 H141" stroke="#26395a" stroke-width="2"/>
+            <rect x="96" y="74" width="90" height="18" rx="6" fill="#0b1220" stroke="#26395a"/>
+            <text x="141" y="86" fill="#90a2bf" font-family="JetBrains Mono" font-size="9" text-anchor="middle">listener</text>
+          </svg>
+        </div>
+        <p>Configured Always On availability groups on clustered instances for low-downtime migrations, and initiated the DR process — now defining a cloud DR standard with the Security and Infrastructure teams.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-eyebrow">// stack</div>
+    <h2 class="display reveal">What I work with</h2>
+    <p class="sec-intro reveal">Hands-on across the SQL Server platform, the cloud it's moving to, and the security around it.</p>
+    <div class="skill-grid">
+      <div class="skill-group reveal">
+        <h4>Administration</h4>
+        <div class="chips">
+          <span class="chip">Backup &amp; Restore</span><span class="chip">Performance Tuning</span><span class="chip">Indexing</span><span class="chip">Deadlock Resolution</span><span class="chip">Replication</span><span class="chip">Capacity Planning</span><span class="chip">Patching</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>High Availability</h4>
+        <div class="chips">
+          <span class="chip">Always On AG</span><span class="chip">Failover Clustering</span><span class="chip">Disaster Recovery</span><span class="chip">Low-downtime Migration</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Migrations &amp; BI</h4>
+        <div class="chips">
+          <span class="chip">SQL Server 2019 Upgrades</span><span class="chip">SSIS</span><span class="chip">SSRS</span><span class="chip">SSAS</span><span class="chip">Data Archiving</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Cloud &amp; IaC</h4>
+        <div class="chips">
+          <span class="chip">AWS RDS / S3</span><span class="chip">Azure SQL</span><span class="chip">Terraform</span><span class="chip">Cloud DB Modernization</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Security</h4>
+        <div class="chips">
+          <span class="chip">Database Encryption</span><span class="chip">PII Audit &amp; Alerting</span><span class="chip">TLS Hardening</span><span class="chip">Sensitive Data Handling</span>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Dev &amp; Process</h4>
+        <div class="chips">
+          <span class="chip">T-SQL</span><span class="chip">C# / .NET</span><span class="chip">SDLC</span><span class="chip">Azure DevOps</span><span class="chip">Agile / Scrum</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-eyebrow">// experience</div>
+    <h2 class="display reveal">Where I've done it</h2>
+    <div style="margin-top:18px">
+      <div class="tl-item reveal">
+        <div class="tl-when">2013 — Present</div>
+        <div>
+          <div class="tl-role">Senior Database Administrator / Technical Lead</div>
+          <div class="tl-org">Georgia Department of Driver Services (DDS) · Conyers, GA</div>
+          <p>SQL Server administration across production and non-production environments: HA with Always On, performance tuning, replication, migrations to 2019, in-house PII auditing, encryption, and cloud modernization on AWS and Azure.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">2006 — 2009</div>
+        <div>
+          <div class="tl-role">Project Lead</div>
+          <div class="tl-org">Vertex Software / NTT Data · Pune, India</div>
+          <p>Led application delivery on a Microsoft stack with relational database back ends, and ran a "Follow the Sun" global delivery model with Agile adoption.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">1998 — 2006</div>
+        <div>
+          <div class="tl-role">Analyst Programmer / Software Engineer</div>
+          <div class="tl-org">Featherstone Informatics · Cowles Technology (UK) · Kainos (UK) · Corcomp Infosys</div>
+          <p>Built the programming and relational-database foundation that the rest of the career is built on, across the UK and India.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact reveal">
+    <div class="sec-eyebrow" style="text-align:center">// contact</div>
+    <h2 class="display">Let's talk databases</h2>
+    <p>Alpharetta, GA · open to senior DBA and data-platform roles</p>
+    <div class="cta" style="justify-content:center">
+      <a class="btn btn-primary" href="mailto:vaicareerpath@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/vaishali-jadhav-1b1656357" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">SELECT * FROM portfolio WHERE owner = 'Vaishali Jadhav'; — built with HTML, CSS &amp; SVG</div>
+</footer>
+
+<script>
+  // scroll reveal
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('in'));
+  }
+</script>
+</body>
+</html>
